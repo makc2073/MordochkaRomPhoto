@@ -280,32 +280,40 @@ namespace MordochkaRom
             labelrows();
         }
         int c;
+        int visit;
         private void btndelete_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show(
-        "Удалить пользователя "+labelNameDel.Text+"?",
-        "Сообщение",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Information,
-        MessageBoxDefaultButton.Button1,
-        MessageBoxOptions.DefaultDesktopOnly);
-
-            if (result == DialogResult.Yes)
+            visit = Convert.ToInt32(label4.Text);
+            if (visit == 0)
             {
-                string sqlExpression = "DELETE FROM Client WHERE ID = " + textBoxID.Text + "";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    int number = command.ExecuteNonQuery();
-                    connection.Close();
+                DialogResult result = MessageBox.Show(
+            "Удалить пользователя " + labelNameDel.Text + "?",
+            "Сообщение",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.DefaultDesktopOnly);
 
+                if (result == DialogResult.Yes)
+                {
+                    string sqlExpression = "DELETE FROM Client WHERE ID = " + textBoxID.Text + "";
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sqlExpression, connection);
+                        int number = command.ExecuteNonQuery();
+                        connection.Close();
+
+                    }
+                    dataGridViewClients.Rows.RemoveAt(c);
+                    MessageBox.Show("Успешно");
                 }
-                dataGridViewClients.Rows.RemoveAt(c);
-                MessageBox.Show("Успешно");
             }
-           
+            else
+            {
+                MessageBox.Show("У пользователя есть посещения");
+            }
                 
 
             this.TopMost = true;
