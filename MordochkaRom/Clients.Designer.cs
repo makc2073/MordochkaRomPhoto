@@ -65,6 +65,7 @@ namespace MordochkaRom
             this.BtnOpenVisits = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.labelSelectVisit = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -72,6 +73,7 @@ namespace MordochkaRom
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewClients
@@ -81,7 +83,7 @@ namespace MordochkaRom
             this.dataGridViewClients.Location = new System.Drawing.Point(6, 23);
             this.dataGridViewClients.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewClients.Name = "dataGridViewClients";
-            this.dataGridViewClients.Size = new System.Drawing.Size(1101, 420);
+            this.dataGridViewClients.Size = new System.Drawing.Size(1101, 402);
             this.dataGridViewClients.TabIndex = 0;
             this.dataGridViewClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClients_CellClick);
             // 
@@ -93,7 +95,7 @@ namespace MordochkaRom
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1113, 454);
+            this.groupBox1.Size = new System.Drawing.Size(1113, 433);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Клиенты";
@@ -107,7 +109,7 @@ namespace MordochkaRom
             this.groupBox2.Controls.Add(this.top100);
             this.groupBox2.Controls.Add(this.top50);
             this.groupBox2.Controls.Add(this.top10);
-            this.groupBox2.Location = new System.Drawing.Point(15, 466);
+            this.groupBox2.Location = new System.Drawing.Point(12, 445);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -238,7 +240,7 @@ namespace MordochkaRom
             this.groupBox3.Controls.Add(this.BtnMan);
             this.groupBox3.Controls.Add(this.BtnAllGender);
             this.groupBox3.Controls.Add(this.BtnWoman);
-            this.groupBox3.Location = new System.Drawing.Point(1128, 350);
+            this.groupBox3.Location = new System.Drawing.Point(1128, 363);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -255,7 +257,7 @@ namespace MordochkaRom
             this.groupBox4.Controls.Add(this.SearchPhone);
             this.groupBox4.Controls.Add(this.SearchMail);
             this.groupBox4.Controls.Add(this.SearchName);
-            this.groupBox4.Location = new System.Drawing.Point(1128, 4);
+            this.groupBox4.Location = new System.Drawing.Point(1128, 13);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -324,7 +326,7 @@ namespace MordochkaRom
             this.groupBox5.Controls.Add(this.btnVisits);
             this.groupBox5.Controls.Add(this.Lastdate);
             this.groupBox5.Controls.Add(this.btnsortFname);
-            this.groupBox5.Location = new System.Drawing.Point(1128, 134);
+            this.groupBox5.Location = new System.Drawing.Point(1128, 147);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(233, 209);
             this.groupBox5.TabIndex = 14;
@@ -382,10 +384,10 @@ namespace MordochkaRom
             // btndelete
             // 
             this.btndelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.btndelete.Location = new System.Drawing.Point(236, 135);
+            this.btndelete.Location = new System.Drawing.Point(236, 155);
             this.btndelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(221, 47);
+            this.btndelete.Size = new System.Drawing.Size(221, 63);
             this.btndelete.TabIndex = 9;
             this.btndelete.Text = "Удалить по ID";
             this.btndelete.UseVisualStyleBackColor = false;
@@ -393,7 +395,7 @@ namespace MordochkaRom
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(43, 22);
+            this.textBoxID.Location = new System.Drawing.Point(47, 28);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(40, 23);
             this.textBoxID.TabIndex = 15;
@@ -401,7 +403,7 @@ namespace MordochkaRom
             // labelNameDel
             // 
             this.labelNameDel.AutoSize = true;
-            this.labelNameDel.Location = new System.Drawing.Point(89, 25);
+            this.labelNameDel.Location = new System.Drawing.Point(93, 31);
             this.labelNameDel.Name = "labelNameDel";
             this.labelNameDel.Size = new System.Drawing.Size(41, 16);
             this.labelNameDel.TabIndex = 16;
@@ -410,10 +412,10 @@ namespace MordochkaRom
             // btnAddClient
             // 
             this.btnAddClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.btnAddClient.Location = new System.Drawing.Point(9, 80);
+            this.btnAddClient.Location = new System.Drawing.Point(9, 84);
             this.btnAddClient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(221, 47);
+            this.btnAddClient.Size = new System.Drawing.Size(221, 63);
             this.btnAddClient.TabIndex = 16;
             this.btnAddClient.Text = "Добавить пользователя";
             this.btnAddClient.UseVisualStyleBackColor = false;
@@ -422,10 +424,10 @@ namespace MordochkaRom
             // BtnUpd
             // 
             this.BtnUpd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.BtnUpd.Location = new System.Drawing.Point(236, 80);
+            this.BtnUpd.Location = new System.Drawing.Point(236, 84);
             this.BtnUpd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnUpd.Name = "BtnUpd";
-            this.BtnUpd.Size = new System.Drawing.Size(221, 47);
+            this.BtnUpd.Size = new System.Drawing.Size(221, 63);
             this.BtnUpd.TabIndex = 17;
             this.BtnUpd.Text = "Редактирование пользователя";
             this.BtnUpd.UseVisualStyleBackColor = false;
@@ -441,9 +443,9 @@ namespace MordochkaRom
             this.groupBox6.Controls.Add(this.btnAddClient);
             this.groupBox6.Controls.Add(this.btndelete);
             this.groupBox6.Controls.Add(this.textBoxID);
-            this.groupBox6.Location = new System.Drawing.Point(655, 466);
+            this.groupBox6.Location = new System.Drawing.Point(655, 444);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(467, 197);
+            this.groupBox6.Size = new System.Drawing.Size(467, 225);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Управление клиентами";
@@ -451,10 +453,10 @@ namespace MordochkaRom
             // BtnOpenVisits
             // 
             this.BtnOpenVisits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.BtnOpenVisits.Location = new System.Drawing.Point(9, 135);
+            this.BtnOpenVisits.Location = new System.Drawing.Point(9, 155);
             this.BtnOpenVisits.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnOpenVisits.Name = "BtnOpenVisits";
-            this.BtnOpenVisits.Size = new System.Drawing.Size(221, 47);
+            this.BtnOpenVisits.Size = new System.Drawing.Size(221, 63);
             this.BtnOpenVisits.TabIndex = 20;
             this.BtnOpenVisits.Text = "Посещения";
             this.BtnOpenVisits.UseVisualStyleBackColor = false;
@@ -463,7 +465,7 @@ namespace MordochkaRom
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 51);
+            this.label4.Location = new System.Drawing.Point(10, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 19;
@@ -472,18 +474,29 @@ namespace MordochkaRom
             // labelSelectVisit
             // 
             this.labelSelectVisit.AutoSize = true;
-            this.labelSelectVisit.Location = new System.Drawing.Point(89, 51);
+            this.labelSelectVisit.Location = new System.Drawing.Point(93, 57);
             this.labelSelectVisit.Name = "labelSelectVisit";
             this.labelSelectVisit.Size = new System.Drawing.Size(41, 16);
             this.labelSelectVisit.TabIndex = 18;
             this.labelSelectVisit.Text = "Name";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1128, 444);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 225);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // FormClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1429, 681);
+            this.ClientSize = new System.Drawing.Size(1370, 681);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -506,6 +519,7 @@ namespace MordochkaRom
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,6 +561,7 @@ namespace MordochkaRom
         private System.Windows.Forms.Label labelSelectVisit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnOpenVisits;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

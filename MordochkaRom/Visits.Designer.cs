@@ -33,8 +33,8 @@ namespace MordochkaRom
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelID = new System.Windows.Forms.Label();
             this.labelFIO = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             this.dataGridViewVIsits = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVIsits)).BeginInit();
@@ -71,15 +71,6 @@ namespace MordochkaRom
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Клиент";
             // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(104, 23);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(20, 16);
-            this.labelID.TabIndex = 2;
-            this.labelID.Text = "ID";
-            // 
             // labelFIO
             // 
             this.labelFIO.AutoSize = true;
@@ -88,6 +79,15 @@ namespace MordochkaRom
             this.labelFIO.Size = new System.Drawing.Size(35, 16);
             this.labelFIO.TabIndex = 3;
             this.labelFIO.Text = "ФИО";
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(104, 23);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(20, 16);
+            this.labelID.TabIndex = 2;
+            this.labelID.Text = "ID";
             // 
             // dataGridViewVIsits
             // 
@@ -104,7 +104,7 @@ namespace MordochkaRom
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(374, 255);
+            this.ClientSize = new System.Drawing.Size(367, 268);
             this.Controls.Add(this.dataGridViewVIsits);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
