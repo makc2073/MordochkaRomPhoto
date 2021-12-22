@@ -77,7 +77,6 @@ namespace MordochkaRom
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Пол";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioButtonMan
             // 
@@ -112,7 +111,6 @@ namespace MordochkaRom
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(132, 23);
             this.textBoxPhone.TabIndex = 35;
-            this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_TextChanged);
             this.textBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
             // 
             // textBoxEmail

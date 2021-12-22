@@ -20,7 +20,10 @@ namespace MordochkaRom
             InitializeComponent();
           
         }
-        
+        /// <summary>
+        /// Метод добавления/Обналвения данных
+        /// </summary>
+        /// <param name="sqlExpr">Запрос</param>
         void add(string sqlExpr)
         {
             string connectionString ="Data Source = 10.10.1.24; Initial Catalog =UP_Romash; User ID = pro-41; Password = Pro_41student";
@@ -30,26 +33,35 @@ namespace MordochkaRom
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 int number = command.ExecuteNonQuery();
-                
+                connection.Close();
             }
         }
+        /// <summary>
+        /// Возвращает подходящий формат
+        /// </summary>
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy";            
         }
-
-
-       
+        
+        /// <summary>
+        /// Загрузка фомры добавления/редактирования
+        /// </summary>  
         private void Addclient_Load(object sender, EventArgs e)
-        {
-            
+        {            
+            //По умолчанию выбран мужской пол, при редактировании в зависимости от пола параметр будет выбран автоматически
             if (gender == null)
             { radioButtonMan.Checked = true; }
             else
-            { if (gender == "м") radioButtonMan.Checked = true; else radioButtonWoman.Checked = true;     }
-                
+            { if (gender == "м") radioButtonMan.Checked = true; else radioButtonWoman.Checked = true;     }                
         }
+        /// <summary>
+        /// Принимает текст с текстбоксов, проверяет их на длинну и запрещает ввод некоторых символов
+        /// </summary>
+        /// <param name="textbox">Текст с текстбоксов ФИО</param>
+        /// <returns></returns>
         string checkFIO(string textbox)
         {
             if (Regex.IsMatch(textbox, @"[1\\2\\3\\4\\5\\6\\7\\8\\9\\0\\!\#\$\%\^\&\*\(\)\}\{\,\.\,\/\\?\'\+\=\:\;\№@]"))
@@ -62,13 +74,11 @@ namespace MordochkaRom
                 textbox = textbox.Substring(0, 50);
             }
             return textbox;
-        }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-         bool rightEmail;
+        }       
+         bool rightEmail; // параметр принимающий значение true/false в зависимости от правильности ввода почты
+        /// <summary>
+        /// Проверка ввода почты
+        /// </summary>       
         private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
             if (Regex.IsMatch(textBoxEmail.Text, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$"))
@@ -81,48 +91,41 @@ namespace MordochkaRom
             }
         }
 
-        private void textBoxFirstName_TextChanged(object sender, EventArgs e)
+        private void textBoxFirstName_TextChanged(object sender, EventArgs e) // Проверка ввода фамилии
         {
             textBoxFirstName.Text = checkFIO(textBoxFirstName.Text);
         }
 
-        private void textBoxLastName_TextChanged(object sender, EventArgs e)
+        private void textBoxLastName_TextChanged(object sender, EventArgs e) // провперка ввода имени
         {
             textBoxLastName.Text = checkFIO(textBoxLastName.Text);
         }
-
-        private void textBoxPatronymic_TextChanged(object sender, EventArgs e)
+        private void textBoxPatronymic_TextChanged(object sender, EventArgs e) // проверка ввода отчества
         {
             textBoxPatronymic.Text = checkFIO(textBoxPatronymic.Text);
-        }
-
-      
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPhone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        public string gender;
+        }           
+       
         private void textBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != '-')
                 e.Handled = true;
         }
+        public string gender; // принимает  значения в зависимости от выбранного пола
         private void radioButtonMan_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonMan.Checked == true) gender = "м";
+            if (radioButtonMan.Checked == true) gender = "м"; 
         }
 
         private void radioButtonWoman_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonWoman.Checked == true) gender = "ж";
+            if (radioButtonWoman.Checked == true) gender = "ж"; 
         }
-       public string stat;
+       public string stat; // принимает занчание  add/upd в зависимости от того какие действия производятся над пользователем добавление/редктирование
+      
+        /// <summary>
+      /// Сохраняет изменения (давабение нового клиента/ редактирование старого)
+      /// </summary>
+      
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (rightEmail == true)
@@ -132,17 +135,17 @@ namespace MordochkaRom
                     if (stat == "add")
                     {
                         add("INSERT INTO Client (FirstName,LastName,Patronymic,Birthday,RegistrationDate,Email,Phone,GenderCode, PhotoPath) Values ('" + textBoxFirstName.Text + "','" + textBoxLastName.Text + "','" + textBoxPatronymic.Text + "','" + dateTimePicker1.Text + "' ,GETDATE(), '" + textBoxEmail.Text + "', '" + textBoxPhone.Text + "', '" + gender + "', '"+Photoname+"')");
-                        MessageBox.Show("Регистрация прошла успешно");
+                        MessageBox.Show("Регистрация прошла успешно"); // добавление пользователя
                     }
                     else
                     {
                         add("UPDATE Client SET FirstName= '"+textBoxFirstName.Text+"', LastName = '"+ textBoxLastName.Text+"', Patronymic ='"+textBoxPatronymic.Text+"', Birthday ='"+dateTimePicker1.Text+"', Email = '"+textBoxEmail.Text+"', Phone ='"+textBoxPhone.Text+"', GenderCode = '"+gender+ "', PhotoPath ='"+Photoname+"'  WHERE ID= " + textBoxID.Text+"");
-                        MessageBox.Show("Изменения сохранены");
+                        MessageBox.Show("Изменения сохранены"); // Обновление данных о пользователе
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Возникла ошибка при сохранении, проверьте заполнение всех полей");
+                    MessageBox.Show("Возникла ошибка при сохранении, проверьте заполнение всех полей"); 
                 }
             }
             else { MessageBox.Show("Неправильный формат почты!"); }
@@ -150,23 +153,23 @@ namespace MordochkaRom
 
         }
         OpenFileDialog open = new OpenFileDialog();
-        string Photoname;
+        string Photoname; // принимает название картинки
+        /// <summary>
+        /// Выбор и отображение новой  картинки
+        /// </summary>    
         private void btnPhoto_Click(object sender, EventArgs e)
         {
-            if (open.ShowDialog() == DialogResult.Cancel)
+            if (open.ShowDialog() == DialogResult.Cancel)// Выбор картинки
                 return;
             // получаем выбранный файл
             string filename = open.FileName;           
             try { File.Copy(open.FileName, Path.Combine(@"d:\users\is12323\Desktop\УП\Клиенты", Path.GetFileName(open.FileName))); }
             catch {  }            
             string part = Path.GetFileName(open.FileName);
-            Photoname = @"Клиенты\" + part;
-            pictureBoxPhoto.Image = Image.FromFile("d:\\users\\is12323\\Desktop\\УП\\" + Photoname + "");
+            Photoname = @"Клиенты\" + part; // сохраняет путь к картинке
+            pictureBoxPhoto.Image = Image.FromFile("d:\\users\\is12323\\Desktop\\УП\\" + Photoname + ""); //отображает выбранную картинку
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

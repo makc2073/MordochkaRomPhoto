@@ -124,7 +124,6 @@ namespace MordochkaRom
             this.labelcount.Size = new System.Drawing.Size(27, 16);
             this.labelcount.TabIndex = 4;
             this.labelcount.Text = "0/0";
-            this.labelcount.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnForward
             // 
@@ -239,7 +238,7 @@ namespace MordochkaRom
             this.groupBox3.Controls.Add(this.BtnMan);
             this.groupBox3.Controls.Add(this.BtnAllGender);
             this.groupBox3.Controls.Add(this.BtnWoman);
-            this.groupBox3.Location = new System.Drawing.Point(1133, 373);
+            this.groupBox3.Location = new System.Drawing.Point(1128, 350);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -256,7 +255,7 @@ namespace MordochkaRom
             this.groupBox4.Controls.Add(this.SearchPhone);
             this.groupBox4.Controls.Add(this.SearchMail);
             this.groupBox4.Controls.Add(this.SearchName);
-            this.groupBox4.Location = new System.Drawing.Point(1133, 27);
+            this.groupBox4.Location = new System.Drawing.Point(1128, 4);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -325,7 +324,7 @@ namespace MordochkaRom
             this.groupBox5.Controls.Add(this.btnVisits);
             this.groupBox5.Controls.Add(this.Lastdate);
             this.groupBox5.Controls.Add(this.btnsortFname);
-            this.groupBox5.Location = new System.Drawing.Point(1133, 157);
+            this.groupBox5.Location = new System.Drawing.Point(1128, 134);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(233, 209);
             this.groupBox5.TabIndex = 14;
@@ -442,7 +441,7 @@ namespace MordochkaRom
             this.groupBox6.Controls.Add(this.btnAddClient);
             this.groupBox6.Controls.Add(this.btndelete);
             this.groupBox6.Controls.Add(this.textBoxID);
-            this.groupBox6.Location = new System.Drawing.Point(542, 472);
+            this.groupBox6.Location = new System.Drawing.Point(655, 466);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(467, 197);
             this.groupBox6.TabIndex = 18;
