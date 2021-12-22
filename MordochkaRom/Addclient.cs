@@ -157,8 +157,8 @@ namespace MordochkaRom
                 return;
             // получаем выбранный файл
             string filename = open.FileName;           
-            try { File.Copy(open.FileName, Path.Combine(@"d:\users\is12323\Desktop\УП", Path.GetFileName(open.FileName))); }
-            catch { MessageBox.Show("Картинка с таким именем уже существует"); }            
+            try { File.Copy(open.FileName, Path.Combine(@"d:\users\is12323\Desktop\УП\Клиенты", Path.GetFileName(open.FileName))); }
+            catch {  }            
             string part = Path.GetFileName(open.FileName);
             Photoname = @"Клиенты\" + part;
             pictureBoxPhoto.Image = Image.FromFile("d:\\users\\is12323\\Desktop\\УП\\" + Photoname + "");

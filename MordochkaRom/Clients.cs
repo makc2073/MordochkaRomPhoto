@@ -26,8 +26,13 @@ namespace MordochkaRom
         string countlabel2;
         string countlabel1;
         string connectionString = "Data Source=10.10.1.24;Initial Catalog=UP_Romash;User ID=pro-41;Password=Pro_41student";
+        /// <summary>
+        /// Данный метод открывает подключение и выводит данные запроса в тпблицу и в элемент  Label(countlabel2)
+        /// </summary>
+        /// <param Запрос="sql"></param>
         void View(string sql) // Метод вывода запроса в таблицу клиента
         {
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -37,8 +42,8 @@ namespace MordochkaRom
                 dataGridViewClients.DataSource = ds.Tables[0];
                 connection.Close();
             }
-
-            string sqlExpression = "SELECT COUNT(*) FROM Client";
+           
+            string sqlExpression = "SELECT COUNT(*) FROM Client";          
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -51,29 +56,32 @@ namespace MordochkaRom
 
         private void FormClients_Load(object sender, EventArgs e)
         {
-            View("SELECT * FROM Client");
+            View("SELECT * FROM Client"); // Вывод запроса в таблицу
             labelrows();
         }
 
-        int str = 0;
-        string list;
-        int viewtop;
-        string toplist;
-        int top = 10;
-        int rows;       
-        string sort;
-        int topstat;
+        int str = 0; // кол-во стриниц
+        string list; // получает количество строк которые нужно вывести
+        int viewtop; // подсчет строки с которой начинается страница
+        string toplist; // начало вывода страницы
+        int top = 10; // количесво выведенных строк по умолчанию
+        string sort;  // параметр сортировки в запросе
+        int topstat;  // Принимает количесвто строк которые нужно вывести
 
+        /// <summary>
+        /// Выводит в таблицу запрос с разными страницами, выведеными строками и разными способами сортировки
+        /// </summary>
+        /// <param Количесвто строк="topstr"></param>
+        /// <param Страницы="str"></param>
         void sheets(int topstr, int str)
         {
-            viewtop = topstr * str;
-            toplist = Convert.ToString(viewtop);
-            list = Convert.ToString(topstr);
-            //View("SELECT * FROM Client ORDER BY " + sort + " ID  OFFSET " + toplist + " ROWS FETCH NEXT " + list + " ROWS ONLY");
+            viewtop = topstr * str; // подсчет строки с которой начинается страница
+            toplist = Convert.ToString(viewtop); // начало вывода страницы
+            list = Convert.ToString(topstr);  // получает количество строк которые нужно вывести
             View("SELECT Client.ID, FirstName, LastName, Patronymic, Birthday,RegistrationDate, Email, Phone, GenderCode, PhotoPath " + starttime + "  FROM Client " + where+" ORDER BY " + sort + " Client.ID  OFFSET " + toplist + " ROWS FETCH NEXT " + list + " ROWS ONLY");
             labelcount.Text = countlabel1 + "/" + countlabel2;
-
         }
+        int rows; // подсчет всех выведеных
         void labelrows()
         {
             rows = dataGridViewClients.Rows.Count - 1;
@@ -87,14 +95,7 @@ namespace MordochkaRom
             { btnForward.Enabled = true; }
             btnBack.Enabled = true;
         }
-        private void top10_Click(object sender, EventArgs e)
-        {
-            top = 10;
-            str = 0;
-            sheets(top, str);
-            labelrows();
-            topstat = 10;
-        }
+     
         private void btnBack_Click(object sender, EventArgs e)
         {
 
@@ -102,8 +103,7 @@ namespace MordochkaRom
             {
                 rows = Convert.ToInt32(countlabel1) - dataGridViewClients.Rows.Count + 1;
                 str = str - 1;
-                sheets(top, str);
-                //rows = Convert.ToInt32(countlabel1) - dataGridViewClients.Rows.Count + 1;
+                sheets(top, str);                
                 countlabel1 = rows.ToString();
                 labelcount.Text = countlabel1 + "/" + countlabel2;
 
@@ -136,6 +136,14 @@ namespace MordochkaRom
             if (Convert.ToInt32(countlabel1) == Convert.ToInt32(countlabel2))
             { btnForward.Enabled = false; }
 
+        }
+        private void top10_Click(object sender, EventArgs e)
+        {
+            top = 10;
+            str = 0;
+            sheets(top, str);
+            labelrows();
+            topstat = 10;
         }
 
         private void top50_Click(object sender, EventArgs e)
@@ -284,7 +292,7 @@ namespace MordochkaRom
         private void btndelete_Click(object sender, EventArgs e)
         {
 
-            visit = Convert.ToInt32(label4.Text);
+            visit = Convert.ToInt32(labelSelectVisit.Text);
             if (visit == 0)
             {
                 DialogResult result = MessageBox.Show(
@@ -331,19 +339,13 @@ namespace MordochkaRom
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 string count = command.ExecuteScalar().ToString();
 
-                label4.Text = count.ToString();
-            }
-           
-
-
-
+                labelSelectVisit.Text = count.ToString();
+            }  
         }
         Addclient AddForm = new Addclient();
         public string stat;
         private void btnAddClient_Click(object sender, EventArgs e)
-        {
-            
-           
+        {             
             AddForm = new Addclient();
             AddForm.stat = "add";
             AddForm.Show();
@@ -351,8 +353,7 @@ namespace MordochkaRom
 
        
         private void BtnUpd_Click(object sender, EventArgs e)
-        {
-           
+        {           
             AddForm = new Addclient();
             AddForm.stat = "upd";
             int rowindex = dataGridViewClients.CurrentCell.RowIndex;
@@ -373,16 +374,29 @@ namespace MordochkaRom
             catch 
             {
                 AddForm.pictureBoxPhoto.Image = Image.FromFile("d:\\users\\is12323\\Desktop\\УП\\Клиенты\\nonImage.png");
-            }
-           
-
-
+            } 
             AddForm.Show();
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
+        }           
+         
+        Visits VisitsForm = new Visits();
+        private void BtnOpenVisits_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Convert.ToInt32(labelSelectVisit.Text) == 0)
+                { MessageBox.Show("У клиента нет посещений"); }
+                else
+                {
 
+                    VisitsForm = new Visits();
+                    VisitsForm.labelID.Text = textBoxID.Text;
+                    int rowindex = dataGridViewClients.CurrentCell.RowIndex;
+                    VisitsForm.labelFIO.Text = dataGridViewClients.Rows[rowindex].Cells[1].Value.ToString() + " " + dataGridViewClients.Rows[rowindex].Cells[2].Value.ToString() +" "+ dataGridViewClients.Rows[rowindex].Cells[3].Value.ToString() ;
+                    VisitsForm.Show();
+                    
+                }
+            }
+            catch { MessageBox.Show("Выберите пользователя"); }
         }
     }
 }

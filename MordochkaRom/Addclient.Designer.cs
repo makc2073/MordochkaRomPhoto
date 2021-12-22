@@ -29,6 +29,7 @@ namespace MordochkaRom
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Addclient));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButtonMan = new System.Windows.Forms.RadioButton();
@@ -57,7 +58,7 @@ namespace MordochkaRom
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 247);
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 220);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(233, 23);
@@ -68,7 +69,7 @@ namespace MordochkaRom
             // 
             this.groupBox1.Controls.Add(this.radioButtonMan);
             this.groupBox1.Controls.Add(this.radioButtonWoman);
-            this.groupBox1.Location = new System.Drawing.Point(133, 282);
+            this.groupBox1.Location = new System.Drawing.Point(133, 251);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -106,7 +107,7 @@ namespace MordochkaRom
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(133, 197);
+            this.textBoxPhone.Location = new System.Drawing.Point(133, 179);
             this.textBoxPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(132, 23);
@@ -116,7 +117,7 @@ namespace MordochkaRom
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(133, 152);
+            this.textBoxEmail.Location = new System.Drawing.Point(133, 138);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(132, 23);
@@ -125,7 +126,7 @@ namespace MordochkaRom
             // 
             // textBoxPatronymic
             // 
-            this.textBoxPatronymic.Location = new System.Drawing.Point(133, 106);
+            this.textBoxPatronymic.Location = new System.Drawing.Point(133, 97);
             this.textBoxPatronymic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPatronymic.Name = "textBoxPatronymic";
             this.textBoxPatronymic.Size = new System.Drawing.Size(132, 23);
@@ -134,7 +135,7 @@ namespace MordochkaRom
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(133, 61);
+            this.textBoxLastName.Location = new System.Drawing.Point(133, 56);
             this.textBoxLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(132, 23);
@@ -162,7 +163,7 @@ namespace MordochkaRom
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 247);
+            this.label7.Location = new System.Drawing.Point(27, 220);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 16);
             this.label7.TabIndex = 28;
@@ -171,7 +172,7 @@ namespace MordochkaRom
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 156);
+            this.label5.Location = new System.Drawing.Point(88, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 16);
             this.label5.TabIndex = 27;
@@ -180,7 +181,7 @@ namespace MordochkaRom
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 201);
+            this.label6.Location = new System.Drawing.Point(66, 184);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 26;
@@ -189,7 +190,7 @@ namespace MordochkaRom
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 65);
+            this.label3.Location = new System.Drawing.Point(96, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 16);
             this.label3.TabIndex = 25;
@@ -198,7 +199,7 @@ namespace MordochkaRom
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 110);
+            this.label4.Location = new System.Drawing.Point(64, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 16);
             this.label4.TabIndex = 24;
@@ -207,7 +208,7 @@ namespace MordochkaRom
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 19);
+            this.label2.Location = new System.Drawing.Point(66, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 23;
@@ -216,7 +217,7 @@ namespace MordochkaRom
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.btnSave.Location = new System.Drawing.Point(133, 370);
+            this.btnSave.Location = new System.Drawing.Point(402, 334);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 23);
             this.btnSave.TabIndex = 39;
@@ -226,7 +227,7 @@ namespace MordochkaRom
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(83, 371);
+            this.textBoxID.Location = new System.Drawing.Point(352, 335);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(44, 23);
@@ -235,7 +236,7 @@ namespace MordochkaRom
             // ID
             // 
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(57, 374);
+            this.ID.Location = new System.Drawing.Point(326, 338);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(20, 16);
             this.ID.TabIndex = 40;
@@ -266,7 +267,7 @@ namespace MordochkaRom
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(514, 416);
+            this.ClientSize = new System.Drawing.Size(508, 363);
             this.Controls.Add(this.btnPhoto);
             this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.textBoxID);
@@ -287,6 +288,7 @@ namespace MordochkaRom
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Addclient";
             this.Text = "Addclient";
