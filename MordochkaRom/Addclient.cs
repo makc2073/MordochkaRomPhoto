@@ -139,8 +139,19 @@ namespace MordochkaRom
                     }
                     else
                     {
-                        add("UPDATE Client SET FirstName= '"+textBoxFirstName.Text+"', LastName = '"+ textBoxLastName.Text+"', Patronymic ='"+textBoxPatronymic.Text+"', Birthday ='"+dateTimePicker1.Text+"', Email = '"+textBoxEmail.Text+"', Phone ='"+textBoxPhone.Text+"', GenderCode = '"+gender+ "', PhotoPath ='"+Photoname+"'  WHERE ID= " + textBoxID.Text+"");
-                        MessageBox.Show("Изменения сохранены"); // Обновление данных о пользователе
+                        DialogResult result = MessageBox.Show(
+           "Сохранить изменения пользователя " + textBoxID.Text + "?",
+           "Сообщение",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Information,
+           MessageBoxDefaultButton.Button1,
+           MessageBoxOptions.DefaultDesktopOnly);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            add("UPDATE Client SET FirstName= '" + textBoxFirstName.Text + "', LastName = '" + textBoxLastName.Text + "', Patronymic ='" + textBoxPatronymic.Text + "', Birthday ='" + dateTimePicker1.Text + "', Email = '" + textBoxEmail.Text + "', Phone ='" + textBoxPhone.Text + "', GenderCode = '" + gender + "', PhotoPath ='" + Photoname + "'  WHERE ID= " + textBoxID.Text + "");
+                            MessageBox.Show("Изменения сохранены"); // Обновление данных о пользователе
+                        }
                     }
                 }
                 catch
