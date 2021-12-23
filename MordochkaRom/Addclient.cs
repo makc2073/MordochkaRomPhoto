@@ -75,10 +75,7 @@ namespace MordochkaRom
             }
             return textbox;
         }       
-         bool rightEmail; // параметр принимающий значение true/false в зависимости от правильности ввода почты
-        /// <summary>
-        /// Проверка ввода почты
-        /// </summary>       
+        bool rightEmail; // параметр принимающий значение true/false в зависимости от правильности ввода почты           
         private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
             if (Regex.IsMatch(textBoxEmail.Text, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$"))
@@ -90,7 +87,11 @@ namespace MordochkaRom
                 rightEmail = false;
             }
         }
-
+       private void textBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != '-')
+                e.Handled = true;
+        }
         private void textBoxFirstName_TextChanged(object sender, EventArgs e) // Проверка ввода фамилии
         {
             textBoxFirstName.Text = checkFIO(textBoxFirstName.Text);
@@ -105,11 +106,7 @@ namespace MordochkaRom
             textBoxPatronymic.Text = checkFIO(textBoxPatronymic.Text);
         }           
        
-        private void textBoxPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != '-')
-                e.Handled = true;
-        }
+      
         public string gender; // принимает  значения в зависимости от выбранного пола
         private void radioButtonMan_CheckedChanged(object sender, EventArgs e)
         {
@@ -146,7 +143,6 @@ namespace MordochkaRom
            MessageBoxIcon.Information,
            MessageBoxDefaultButton.Button1,
            MessageBoxOptions.DefaultDesktopOnly);
-
                         if (result == DialogResult.Yes)
                         {
                             add("UPDATE Client SET FirstName= '" + textBoxFirstName.Text + "', LastName = '" + textBoxLastName.Text + "', Patronymic ='" + textBoxPatronymic.Text + "', Birthday ='" + dateTimePicker1.Text + "', Email = '" + textBoxEmail.Text + "', Phone ='" + textBoxPhone.Text + "', GenderCode = '" + gender + "', PhotoPath ='" + Photoname + "'  WHERE ID= " + textBoxID.Text + "");
@@ -159,10 +155,9 @@ namespace MordochkaRom
                     MessageBox.Show("Возникла ошибка при сохранении, проверьте заполнение всех полей"); 
                 }
             }
-            else { MessageBox.Show("Неправильный формат почты!"); }
-               
-
+            else { MessageBox.Show("Неправильный формат почты!"); }              
         }
+
         OpenFileDialog open = new OpenFileDialog();
         string Photoname; // принимает название картинки
         /// <summary>

@@ -242,6 +242,7 @@ namespace MordochkaRom
             // 
             // pictureBoxPhoto
             // 
+            this.pictureBoxPhoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
             this.pictureBoxPhoto.Location = new System.Drawing.Point(338, 12);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(158, 163);

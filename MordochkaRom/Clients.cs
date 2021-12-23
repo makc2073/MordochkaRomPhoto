@@ -107,8 +107,7 @@ namespace MordochkaRom
         /// перелистнуть страницу назад 
         /// </summary>        
         private void btnBack_Click(object sender, EventArgs e) 
-        {
-            
+        {            
             if (str > 0)
             {
                 rows = Convert.ToInt32(countlabel1) - dataGridViewClients.Rows.Count + 1;
@@ -116,13 +115,11 @@ namespace MordochkaRom
                 sheets(top, str);                
                 countlabel1 = rows.ToString();
                 labelcount.Text = countlabel1 + "/" + countlabel2;
-
             }
             else
             {
                 str = 0;
                 btnBack.Enabled = false; // блокирикет кнопку "Назад" если больше некуда листать
-
             }
             if (Convert.ToInt32(countlabel1) == Convert.ToInt32(countlabel2))
             {
@@ -242,27 +239,7 @@ namespace MordochkaRom
         /// сортировка, сначала женщины
         /// </summary>
 
-        private void BtnWoman_Click(object sender, EventArgs e)  
-        {
-            starttime = null;
-            where = null;           
-            sort = "GenderCode ASC,";
-            genderSearch = "ORDER BY GenderCode ASC";           
-            topstats(topstat);
-            labelrows();
-        }
-        /// <summary>
-        /// Сортировка по полу, все
-        /// </summary>
-
-        private void BtnAllGender_Click(object sender, EventArgs e) 
-        {
-            starttime = null;
-            where = null;            
-            sort = null;
-            topstats(topstat);
-            labelrows();
-        }
+ 
         /// <summary>
         ///  поиск по ФИО
         /// </summary>
@@ -282,10 +259,30 @@ namespace MordochkaRom
         /// <summary>
         /// Поиск по номеру телефона
         /// </summary>
-
         private void SearchPhone_TextChanged(object sender, EventArgs e)
         {
             View("SELECT * FROM Client WHERE Phone LIKE '" + SearchPhone.Text + "%'");
+            labelrows();
+        }    
+        private void BtnWoman_Click(object sender, EventArgs e)  
+        {
+            starttime = null;
+            where = null;           
+            sort = "GenderCode ASC,";
+            genderSearch = "ORDER BY GenderCode ASC";           
+            topstats(topstat);
+            labelrows();
+        }
+        /// <summary>
+        /// Сортировка по полу, все
+        /// </summary>
+
+        private void BtnAllGender_Click(object sender, EventArgs e) 
+        {
+            starttime = null;
+            where = null;            
+            sort = null;
+            topstats(topstat);
             labelrows();
         }
         /// <summary>
@@ -312,8 +309,7 @@ namespace MordochkaRom
             topstats(topstat);            
             labelrows();
             
-        }
-        /// <summary>
+        }        /// <summary>
         /// Сортировка по количеству посещений
         /// </summary>
 
